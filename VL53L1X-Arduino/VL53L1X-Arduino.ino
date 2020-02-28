@@ -99,7 +99,7 @@ void Init_Function(){
 
   // Inicialización del sensor 4
   digitalWrite(Sensor4_XSHUT, HIGH);
-  Sensor4.setAddress(Sensor4_Address);
+    Sensor4.setAddress(Sensor4_Address);
   Sensor4.setTimeout(500);
   if(!Sensor1.init()){
     Serial.println("Inicialización del sensor 4 fallida");
