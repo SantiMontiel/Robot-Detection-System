@@ -32,7 +32,6 @@ void setup() {
   Sensor1.setAddress(0x31);
   Sensor1.setDistanceMode(VL53L1X::Long);
   Sensor1.setMeasurementTimingBudget(50000);
-  Sensor1.startContinuous(50);
 
   // Inicialización del sensor 2
   pinMode(3, INPUT);
@@ -45,18 +44,18 @@ void setup() {
   Sensor2.setAddress(0x33);
   Sensor2.setDistanceMode(VL53L1X::Long);
   Sensor2.setMeasurementTimingBudget(50000);
+
+  Sensor1.startContinuous(50);
   Sensor2.startContinuous(50);
 }
 
 void loop() {
   // put your main code here, to run repeatedly:
-  
-  // delay(250);
+ 
   Sensor1.read();
   Serial.print("S1: ");
   Serial.print(Sensor1.ranging_data.range_mm);
 
-  // delay(250);
   Sensor2.read();
   Serial.print("\tS2: ");
   Serial.print(Sensor2.ranging_data.range_mm); 
